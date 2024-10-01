@@ -72,7 +72,7 @@
         navigator.serviceWorker.ready.then(function(swReg) {
             swReg.pushManager.subscribe({
                 userVisibleOnly: true,
-                applicationServerKey: urlBase64ToUint8Array('<Your Public VAPID Key>')
+                applicationServerKey: urlBase64ToUint8Array('BC6G4FR_RAhD84agfPMiMKnCRKcNlp_M8jDqsqxWvVl-9wrvuCQ2z_9nM8bWxJugOqmeNYLajPKphTlDAHDuqp0')
             }).then(function(subscription) {
                 console.log('User is subscribed:', JSON.stringify(subscription));
             }).catch(function(err) {
