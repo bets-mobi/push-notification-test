@@ -4,6 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Push Notification Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+
+        .notification-info {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            padding: 0 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Push Notification Test</h1>
+<button id="subscribeBtn">Subscribe to Push Notifications</button>
+<div class="notification-info">
+    <p>Click the button above to receive notifications!</p>
+</div>
+
+<script>
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+        navigator.serviceWorker.register('sw.js')
+        .then(function(swReg) {
+            console.log('Service Worker Registered', swReg);
+        }).catch(function(error) {
+            console.error('Service Worker Error', error);
+        });
+    }
+
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    subscribeBtn.addEventListener('click', function() {
+        navigator.serviceWorker.ready.then(function(swReg) {
+            swReg.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: urlBase64ToUint8Array('BC6G4FR_RAhD84agfPMiMKnCRKcNlp_M8jDqsqxWvVl-9wrvuCQ2z_9nM8bWxJugOqmeNYLajPKphTlDAHDuqp0<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Test</title>
 </head>
 <body>
 
@@ -26,6 +100,229 @@
             swReg.pushManager.subscribe({
                 userVisibleOnly: true,
                 applicationServerKey: urlBase64ToUint8Array('BC6G4FR_RAhD84agfPMiMKnCRKcNlp_M8jDqsqxWvVl-9wrvuCQ2z_9nM8bWxJugOqmeNYLajPKphTlDAHDuqp0')
+            }).then(function(subscription) {
+                console.log('User is subscribed:', JSON.stringify(subscription));
+            }).catch(function(err) {
+                console.error('Failed to subscribe the user:', err);
+            });
+        });
+    });
+
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Test</title>
+</head>
+<body>
+
+<h1>Push Notification Test</h1>
+<button id="subscribeBtn">Subscribe to Push Notifications</button>
+
+<script>
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+        navigator.serviceWorker.register('sw.js')
+        .then(function(swReg) {
+            console.log('Service Worker Registered', swReg);
+        }).catch(function(error) {
+            console.error('Service Worker Error', error);
+        });
+    }
+
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    subscribeBtn.addEventListener('click', function() {
+        navigator.serviceWorker.ready.then(function(swReg) {
+            swReg.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: urlBase64ToUint8Array('BC6G4FR_RAhD84agfPMiMKnCRKcNlp_M8jDqsqxWvVl-9wrvuCQ2z_9nM8bWxJugOqmeNYLajPKphTlDAHDuqp0')
+            }).then(function(subscription) {
+                console.log('User is subscribed:', JSON.stringify(subscription));
+            }).catch(function(err) {
+                console.error('Failed to subscribe the user:', err);
+            });
+        });
+    });
+
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Test</title>
+</head>
+<body>
+
+<h1>Push Notification Test</h1>
+<button id="subscribeBtn">Subscribe to Push Notifications</button>
+
+<script>
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+        navigator.serviceWorker.register('sw.js')
+        .then(function(swReg) {
+            console.log('Service Worker Registered', swReg);
+        }).catch(function(error) {
+            console.error('Service Worker Error', error);
+        });
+    }
+
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    subscribeBtn.addEventListener('click', function() {
+        navigator.serviceWorker.ready.then(function(swReg) {
+            swReg.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: urlBase64ToUint8Array('BC6G4FR_RAhD84agfPMiMKnCRKcNlp_M8jDqsqxWvVl-9wrvuCQ2z_9nM8bWxJugOqmeNYLajPKphTlDAHDuqp0')
+            }).then(function(subscription) {
+                console.log('User is subscribed:', JSON.stringify(subscription));
+            }).catch(function(err) {
+                console.error('Failed to subscribe the user:', err);
+            });
+        });
+    });
+
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Test</title>
+</head>
+<body>
+
+<h1>Push Notification Test</h1>
+<button id="subscribeBtn">Subscribe to Push Notifications</button>
+
+<script>
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+        navigator.serviceWorker.register('sw.js')
+        .then(function(swReg) {
+            console.log('Service Worker Registered', swReg);
+        }).catch(function(error) {
+            console.error('Service Worker Error', error);
+        });
+    }
+
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    subscribeBtn.addEventListener('click', function() {
+        navigator.serviceWorker.ready.then(function(swReg) {
+            swReg.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: urlBase64ToUint8Array('BC6G4FR_RAhD84agfPMiMKnCRKcNlp_M8jDqsqxWvVl-9wrvuCQ2z_9nM8bWxJugOqmeNYLajPKphTlDAHDuqp0')
+            }).then(function(subscription) {
+                console.log('User is subscribed:', JSON.stringify(subscription));
+            }).catch(function(err) {
+                console.error('Failed to subscribe the user:', err);
+            });
+        });
+    });
+
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Test</title>
+</head>
+<body>
+
+<h1>Push Notification Test</h1>
+<button id="subscribeBtn">Subscribe to Push Notifications</button>
+
+<script>
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+        navigator.serviceWorker.register('sw.js')
+        .then(function(swReg) {
+            console.log('Service Worker Registered', swReg);
+        }).catch(function(error) {
+            console.error('Service Worker Error', error);
+        });
+    }
+
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    subscribeBtn.addEventListener('click', function() {
+        navigator.serviceWorker.ready.then(function(swReg) {
+            swReg.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: urlBase64ToUint8Array('BC6G4FR_RAhD84agfPMiMKnCRKcNlp_M8jDqsqxWvVl-9wrvuCQ2z_9nM8bWxJugOqmeNYLajPKphTlDAHDuqp0')
+            }).then(function(subscription) {
+                console.log('User is subscribed:', JSON.stringify(subscription));
+            }).catch(function(err) {
+                console.error('Failed to subscribe the user:', err);
+            });
+        });
+    });
+
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+</script>
+
+</body>
+</html>
+')
             }).then(function(subscription) {
                 console.log('User is subscribed:', JSON.stringify(subscription));
             }).catch(function(err) {
